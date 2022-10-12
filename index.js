@@ -9,7 +9,7 @@ const io = new Server(server, {
         origin: "http://localhost:3000"
     }
 })
-const PORT = 5999
+const PORT = 5999 || process.env.PORT
 const cors = require("cors")
 const connect = require("./schema/Connect.js")
 const ChatSchema = require("./schema/Chatroom.js")
