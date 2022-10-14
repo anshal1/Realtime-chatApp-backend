@@ -145,10 +145,4 @@ io.on("connection", async socket => {
     })
 })
 
-
-server.listen(PORT, () => {
-    try {
-        console.log(`App on ${PORT}`)
-    } catch (error) {
-    }
-})
+module.exports = server
