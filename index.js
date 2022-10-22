@@ -7,7 +7,7 @@ const { Server } = require("socket.io")
 require("dotenv").config()
 const io = new Server(server, {
     cors: {
-        origin: "https://realtime-chatapp-frontend.vercel.app"
+        origin: "*"
     }
 })
 const PORT = 5999 || process.env.PORT
@@ -16,7 +16,7 @@ const connect = require("./schema/Connect.js")
 const ChatSchema = require("./schema/Chatroom.js")
 connect()
 app.use(cors({
-    origin: "https://realtime-chatapp-frontend.vercel.app"
+    origin: "*"
 }))
 app.use(express.json())
 app.use("/", require("./routes/Auth.js"))
