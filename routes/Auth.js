@@ -31,7 +31,7 @@ router.post("/auth/v0/signup", async (req, res) => {
                 return res.status(500).json({ error: "Internal server error" })
             }
         })
-        const secret = process.env.Secret_Key
+        const secret = process.env.secretkey
         const sign = jwt.sign({ token: createUser._id }, secret)
         res.json({  sign })
     } catch (error) {
@@ -58,7 +58,7 @@ router.post("/auth/v0/login", async (req, res) => {
         if (!comparePass) {
             return res.status(401).json({ error: "Invalid details" })
         }
-        const secret = process.env.Secret_Key
+        const secret = process.env.secretkey
         const sign = jwt.sign({ token: find_user._id }, secret)
         res.json({ sign })
     } catch (error) {
@@ -72,7 +72,7 @@ router.post("/auth/v0/login", async (req, res) => {
 // ? Guest account
 router.post("/auth/v0/guest", async (req, res) => {
     const find_user = await User.find({})
-    const secret = process.env.Secret_Key
+    const secret = process.env.secretkey
     const salt = bc.genSaltSync(10)
     const hash_password = bc.hashSync("GuestUser" + (find_user.length + 1), salt)
     const GuestUser = new User({

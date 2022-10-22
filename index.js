@@ -6,16 +6,16 @@ const { Server } = require("socket.io")
 require("dotenv").config()
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3000"
+        origin: "https://realtime-chatapp-frontend.vercel.app"
     }
 })
-const PORT = 5999
+const PORT = 5999 || process.env.PORT
 const cors = require("cors")
 const connect = require("./schema/Connect.js")
 const ChatSchema = require("./schema/Chatroom.js")
 connect()
 app.use(cors({
-    origin: "http://localhost:3000"
+    origin: "https://realtime-chatapp-frontend.vercel.app"
 }))
 app.use(express.json())
 app.use("/", require("./routes/Auth.js"))
@@ -144,10 +144,6 @@ io.on("connection", async socket => {
     })
 })
 
-
-server.listen(PORT, () => {
-    try {
-        console.log(`App on ${PORT}`)
-    } catch (error) {
-    }
+server.listen(PORT, ()=>{
+    console.log(`App listening on ${PORT}`)
 })

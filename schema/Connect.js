@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const URI = "mongodb://localhost:27017/moody-chat"
+const URI = "mongodb+srv://anshal:anshalisgreat@cluster0.0xywu.mongodb.net/mood-chat"
 const connect = ()=>{
     try {
         mongoose.connect(URI, ()=>{

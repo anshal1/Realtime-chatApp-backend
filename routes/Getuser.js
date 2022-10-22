@@ -7,7 +7,7 @@ const FindUser =async (req, res, next)=>{
         if(!token){
             return res.status(401).json({error: "Unauthorized action"})
         }
-        const secret = process.env.Secret_Key
+        const secret = process.env.secretkey
         const decode = jwt.verify(token, secret)
         id = decode.token
         const find_user = await User.findById(id)
