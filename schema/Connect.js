@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
-const URI = "mongodb+srv://anshal:anshalisgreat@cluster0.0xywu.mongodb.net/mood-chat"
+require("dotenv").config();
+const URI = process.env.MD
 const connect = ()=>{
     try {
         mongoose.connect(URI, ()=>{

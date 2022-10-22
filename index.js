@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const http = require("http")
 const server = http.createServer(app)
+const hostname = "0.0.0.0"
 const { Server } = require("socket.io")
 require("dotenv").config()
 const io = new Server(server, {
